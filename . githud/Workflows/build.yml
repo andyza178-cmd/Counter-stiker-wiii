@@ -1,0 +1,37 @@
+
+name: Build Counter-Strike Wii
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Compile Wii application
+        run: |
+          docker run --rm \
+            -v "$GITHUB_WORKSPACE:/work" \
+            -w /work \
+            devkitpro/devkitppc:latest \
+            make
+
+      - name: Verify output
+        run: |
+          test -f boot.dol
+          ls -lh boot.dol
+
+      - name: Upload Wii executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: Counter-Strike-Wii
+          path: |
+            boot.dol
+            meta.xml
+            

@@ -1,0 +1,13 @@
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<app version="1">
+    <name>Counter-Strike Wii</name>
+    <coder>CS Wii Project</coder>
+    <version>0.1.0</version>
+    <release_date>20261118</release_date>
+    <short_description>Counter-Strike Wii Engine</short_description>
+    <long_description>
+        Custom Counter-Strike FPS engine for Nintendo Wii.
+        Initial development version.
+    </long_description>
+</app>
